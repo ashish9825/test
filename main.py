@@ -114,7 +114,7 @@ def get_ui(request):
                         body: JSON.stringify(data)
                     });
                     const result = await response.json();
-                    document.getElementById('prediction').textContent = '🌺 ' + result.predicted_flower.toUpperCase();
+                    document.getElementById('prediction').textContents = '🌺 ' + result.predicted_flower.toUpperCase();
                     document.getElementById('result').style.display = 'block';
                 } catch (error) {
                     alert('Error: ' + error.message);
