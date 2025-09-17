@@ -3,54 +3,24 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.env
-.env*
-*.sqlite3
-*.db
-*.log
-*.bak
-*.swp
-*.swo
-
-# Jupyter Notebooks
-.ipynb_checkpoints/
 
 # Docker
 *.pid
-docker-compose.override.yml
 
 # VS Code
 .vscode/
 
-# System
-.DS_Store
-Thumbs.db
-
 # Git
 .git/
-.gitignore
 
 # Model files
 *.pkl
 *.h5
 *.joblib
 
-# Node
-node_modules/
-
-# Other
-*.tmp
-*.cache
-*.lock
-*.out
-*.egg-info/
-
 # Build
 build/
 dist/
-*.egg
-*.manifest
-*.spec
 
 # Test
 .coverage
@@ -59,110 +29,21 @@ htmlcov/
 .pytest_cache/
 
 # Secrets
+.env*
 secrets/
 *.pem
 *.key
 *.crt
-*.cfg
-*.conf
 
-# OS
-*.~
-*.bak
-*.orig
-*.old
+# Node
+node_modules/
 
 # Misc
+*.log
+*.tmp
+*.cache
 *.zip
 *.tar.gz
 *.tar
-*.rar
-*.7z
-*.gz
-*.bz2
-*.xz
-*.tgz
-*.log
-*.csv
-*.tsv
-*.xls
-*.xlsx
-*.ppt
-*.pptx
-*.doc
-*.docx
-*.pdf
-*.mp4
-*.mp3
-*.wav
-*.avi
-*.mov
-*.flv
-*.wmv
-*.mkv
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.bmp
-*.svg
-*.ico
-*.webp
-*.psd
-*.ai
-*.eps
-*.xcf
-*.tiff
-*.raw
-*.exr
-*.cr2
-*.nef
-*.orf
-*.sr2
-*.dng
-*.heic
-*.heif
-*.indd
-*.sketch
-*.fig
-*.xd
-*.fla
-*.swf
-*.ttf
-*.otf
-*.woff
-*.woff2
-*.eot
-*.sfnt
-*.suit
-*.bdf
-*.psf
-*.pcf
-*.spd
-*.sfd
-*.fon
-*.fnt
-*.pfb
-*.pfa
-*.afm
-*.acfm
-*.lwfn
-*.vfb
-*.dfont
-*.suit
-*.bdf
-*.psf
-*.pcf
-*.spd
-*.sfd
-*.fon
-*.fnt
-*.pfb
-*.pfa
-*.afm
-*.acfm
-*.lwfn
-*.vfb
-*.dfont
 
 # End of file
