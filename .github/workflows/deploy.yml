@@ -1,4 +1,4 @@
-name: Deploy to Azure VM
+name: Simple Deploy to Azure VM
 
 on:
   push:
@@ -8,25 +8,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Copy files to Azure VM
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.AZURE_HOST }}
-          username: ${{ secrets.AZURE_USER }}
-          key: ${{ secrets.AZURE_SSH_KEY }}
-          source: "."
-          target: "/home/${{ secrets.AZURE_USER }}/app"
-
-      - name: Run docker-compose on Azure VM
+      - name: SSH and deploy
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.AZURE_HOST }}
           username: ${{ secrets.AZURE_USER }}
           key: ${{ secrets.AZURE_SSH_KEY }}
           script: |
-            cd /home/${{ secrets.AZURE_USER }}/app
-            sudo docker-compose pull
+            cd ~/app || git clone https://github.com/${{ github.repository }} ~/app && cd ~/app
+            git pull origin main
+            sudo apt-get update
+            sudo apt-get install -y docker.io docker-compose
             sudo docker-compose up -d --build
