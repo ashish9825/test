@@ -46,4 +46,5 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y docker.io docker-compose
             sudo docker-compose up -d --build
+            sudo docker image prune -af
 
