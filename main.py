@@ -91,7 +91,7 @@ def get_ui():
                 <input type='number' id='petal_width' step='0.1' placeholder='0.2' required>
             </div>
             <br>
-            <button type='submit'>🔮 Predict the  Flower</button>
+            <button type='submit'>🔮 Predict Flower</button>
         </form>
         <div id='result' class='result' style='display:none;'>
             <h3>Prediction Result:</h3>
