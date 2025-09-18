@@ -1,4 +1,29 @@
-name: Simple Deploy to Azure VM
+# name: Simple Deploy to Azure VM
+
+# on:
+#   push:
+#     branches: [main]
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: SSH and deploy
+#         uses: appleboy/ssh-action@v0.1.10
+#         with:
+#           host: ${{ secrets.AZURE_HOST }}
+#           username: ${{ secrets.AZURE_USER }}
+#           key: ${{ secrets.AZURE_SSH_KEY }}
+#           script: |
+#             cd ~/app || git clone https://github.com/${{ github.repository }} ~/app && cd ~/app
+#             git fetch origin main
+#             git reset --hard origin/main
+#             sudo apt-get update
+#             sudo apt-get install -y docker.io docker-compose
+#             sudo docker-compose up -d --build
+
+
+name: Efficient Deploy to Azure VM
 
 on:
   push:
@@ -15,8 +40,10 @@ jobs:
           username: ${{ secrets.AZURE_USER }}
           key: ${{ secrets.AZURE_SSH_KEY }}
           script: |
-            cd ~/app || git clone https://github.com/${{ github.repository }} ~/app && cd ~/app
-            git pull origin main
+            cd ~/app || git clone --depth 1 https://github.com/${{ github.repository }} ~/app && cd ~/app
+            git fetch --depth 1 origin main
+            git reset --hard origin/main
             sudo apt-get update
             sudo apt-get install -y docker.io docker-compose
             sudo docker-compose up -d --build
+

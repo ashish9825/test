@@ -54,14 +54,13 @@ def predict_flower(flower: Flower):
     
     return {"predicted_flower": flowers[prediction]}
 @app.get("/ui", response_class=HTMLResponse)
-def get_ui(request):
+def get_ui():
     REQUEST_COUNT.labels(endpoint='/ui').inc()
     return HTMLResponse("""
     <!DOCTYPE html>
     <html>
     <head>
         <title>Iris Flower Predictor</title>
-        <meta http-equiv='refresh' content='2'>
         <style>
             body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
             input { padding: 10px; margin: 5px; width: 200px; }
@@ -114,7 +113,7 @@ def get_ui(request):
                         body: JSON.stringify(data)
                     });
                     const result = await response.json();
-                    document.getElementById('prediction').textContents = '🌺 ' + result.predicted_flower.toUpperCase();
+                    document.getElementById('prediction').textContent = '🌺 ' + result.predicted_flower.toUpperCase();
                     document.getElementById('result').style.display = 'block';
                 } catch (error) {
                     alert('Error: ' + error.message);
